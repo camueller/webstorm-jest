@@ -1,0 +1,29 @@
+{
+  "extends": "../tsconfig.base.json",
+  "compilerOptions": {
+    "module": "commonjs",
+    "target": "es2017",
+    "emitDecoratorMetadata": true,
+    "noEmit": false,
+    "outDir": "build/js",
+    "types": [
+      "node",
+      "koa-bodyparser",
+      "jest"
+    ],
+    "lib": [
+      "es2017",
+      // weil superagent Blob und XMLHttpRequest verwendet:
+      // https://github.com/DefinitelyTyped/DefinitelyTyped/issues/12044
+      "dom"
+    ]
+  },
+  "exclude": [
+    "node_modules",
+    "build"
+  ],
+  "references": [
+    {"path": "../shared/tsconfig.json"},
+    {"path": "../shared-test/tsconfig.json"}
+  ]
+}
